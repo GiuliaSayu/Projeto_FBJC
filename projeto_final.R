@@ -1,6 +1,14 @@
+#Script utilizado na pesquisa para a FBJC
+#Feito por Giulia Sayuri
 
+#Carregamento da planilha de dados
 fbjc <- read.csv2("fbjc.csv", sep=",")
+
+#Mudanca de "NA" para "14" (número arbitrário)
+#Foi alterado "NA" para "14" para que esse valor possa ser removido da variável
 write.csv(fbjc, file="fbjc.csv", na="14", row.names=FALSE)
+
+#Recarregamento da planilha de dados atualizada
 fbjc <- read.csv2("fbjc.csv", sep=",")
 
 #DefiniÃ§Ã£o das variÃ¡veis para os sentimentos
@@ -8,7 +16,7 @@ fbjc <- read.csv2("fbjc.csv", sep=",")
 #Ansiedade
 ansiedade_ass <- fbjc[fbjc[,1]== "Sim", 2]
 ansiedade_Nass <- fbjc[fbjc[,1]== "Nao", 2]
-#RemoÃ§Ã£o dos "NA"
+#RemoÃ§Ã£o dos "NA" (Numero 14 dentro da variável)
 ansiedade_ass = ansiedade_ass[ansiedade_ass!=14]
 ansiedade_Nass = ansiedade_Nass[ansiedade_Nass!=14]
 #Teste T
